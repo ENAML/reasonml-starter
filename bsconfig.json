@@ -1,0 +1,48 @@
+/* This is the BuckleScript configuration file. Note that this is a comment;
+  BuckleScript comes with a JSON parser that supports comments and trailing
+  comma. If this screws with your editor highlighting, please tell us by filing
+  an issue! */
+{
+  "name": "ReDraw",
+
+  "reason": {
+    "react-jsx": 2
+  },
+
+  "bs-dependencies": [
+    "reason-react",
+    "bs-webapi"
+  ],
+
+  "sources": [
+    {
+      "dir" : "src",
+      "subdirs" : true
+    }
+  ],
+
+  "package-specs": [{
+    "module": "es6",
+    "in-source": false
+  }],
+
+  "suffix": ".bs.js",
+  "namespace": true,
+  "refmt": 3,
+
+  "warnings": {
+    // polymorphic comparison
+    "number": "-44-102",
+    // partial application whose result has function type and is ignored
+    "error": "+5",
+  },
+
+  "bsc-flags": [
+    "-bs-no-version-header",
+    "-bs-super-errors",
+    // FOR LOGGING RECORD TYPES IN CHROME
+    // NOTE: turn this off whne building production
+    // see: https://bucklescript.github.io/docs/en/better-data-structures-printing-debug-mode.html
+    // "-bs-g",
+  ]
+}
